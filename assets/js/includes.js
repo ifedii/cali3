@@ -1,6 +1,6 @@
 Promise.all([
-  fetch('assets/includes/nav.html').then(function(r) { return r.text(); }),
-  fetch('assets/includes/footer.html').then(function(r) { return r.text(); })
+  fetch('/assets/includes/nav.html').then(function(r) { return r.text(); }),
+  fetch('/assets/includes/footer.html').then(function(r) { return r.text(); })
 ]).then(function(results) {
   var navHtml = results[0];
   var footerHtml = results[1];
