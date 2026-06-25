@@ -80,7 +80,8 @@
 
   /* ── CARD IMAGE PLACEHOLDER ── */
   .card-img-placeholder {
-    aspect-ratio: 4/3;
+    aspect-ratio: 3/2;
+    max-height: 200px;
     background: rgba(190,30,45,0.1);
     border-radius: var(--radius);
     display: flex;
@@ -109,6 +110,9 @@
     display: flex;
     align-items: center;
     gap: 16px;
+    max-width: 480px;
+    margin-left: auto;
+    margin-right: auto;
   }
   .carousel-track-wrapper {
     overflow: hidden;
@@ -120,9 +124,9 @@
     transition: transform 0.45s cubic-bezier(0.4, 0, 0.2, 1);
   }
   .carousel-track .bs-card {
-    min-width: 33.333%;
-    flex-shrink: 0;
+    flex: 0 0 33.333%;
     box-sizing: border-box;
+    overflow: hidden;
   }
   .carousel-arrow {
     width: 44px;
@@ -165,7 +169,23 @@
     transform: scale(1.3);
   }
 
+  .sandwich-carousel .bs-num {
+    font-size: 60px;
+    top: -6px;
+    right: 10px;
+  }
+
   @media (max-width: 640px) {
+    .sandwich-carousel {
+      max-width: 100%;
+    }
+    .card-img-placeholder {
+      aspect-ratio: 16/9;
+      max-height: 160px;
+    }
+    .bs-card {
+      padding: 20px 16px;
+    }
     .carousel-arrow {
       width: 36px;
       height: 36px;
@@ -183,13 +203,21 @@
   </video>
   <div class="social-hero-overlay"></div>
   <div class="social-hero-content">
+    <div class="logo-badge" style="margin: 0 auto 24px; width: fit-content;">
+      <span class="logo-est">Est. 1967</span>
+      <span class="logo-name">CALIFORNIA</span>
+      <span class="logo-sub">Sandwiches</span>
+      <div class="logo-stars">★ ★ ★ ★ ★</div>
+    </div>
     <h1 class="hero-title">Fresh Italian Sandwiches<br>in Barrie</h1>
     <div class="hero-rule"></div>
     <p class="hero-subtitle">Made to order. Baked fresh daily. Ready for pickup or delivery.</p>
     <div class="social-cta-stack">
       <a class="btn btn-primary" href="tel:+17057192626">Order Pickup</a>
-      <a class="btn btn-orange" href="https://www.ubereats.com" target="_blank" rel="noopener">Order on Uber Eats</a>
+      <a class="btn btn-orange" href="https://www.ubereats.com/ca/store/california-sandwiches-barrie/wrpcuyBGSUGrwWFQw2cZxw" target="_blank" rel="noopener">Order on Uber Eats</a>
+      <!-- SkipTheDishes — temporarily disabled, re-enable when link is confirmed
       <a class="btn btn-red" href="https://www.skipthedishes.com" target="_blank" rel="noopener">Order on SkipTheDishes</a>
+      -->
       <a class="btn btn-secondary" href="https://www.google.com/maps/dir//California+Sandwiches+Barrie,+75+Barrie+View+Dr+Unit+108A,+Barrie,+ON+L4N+8V4,+Canada" target="_blank" rel="noopener">Get Directions</a>
       <a class="btn btn-outline-red" href="pages/menu.html">View Full Menu</a>
     </div>
@@ -213,36 +241,36 @@
             <div class="card-img-placeholder">📷 Photo Coming Soon</div>
             <div class="bs-num">01</div>
             <span class="bs-tag">★ Fan Favourite</span>
-            <h3 class="bs-name">Veal Parmigiana</h3>
-            <p class="bs-desc">Tender breaded veal cutlet with house marinara and melted provolone on a fresh-baked bun.</p>
-            <span class="bs-price">$13.99</span>
+            <h3 class="bs-name">The B-A-R-R-I-E</h3>
+            <p class="bs-desc">Chicken cutlets, pepperoni, hot honey, homemade marinara sauce, red onions, slice of cheese, cherry tomatoes</p>
+            <span class="bs-price">$19.99</span>
             <div class="card-btns">
               <a class="btn btn-outline-red" href="tel:+17057192626">Call In Store</a>
-              <a class="btn btn-orange" href="https://www.ubereats.com" target="_blank" rel="noopener">Uber Eats</a>
+              <a class="btn btn-orange" href="https://www.ubereats.com/ca/store/california-sandwiches-barrie/wrpcuyBGSUGrwWFQw2cZxw" target="_blank" rel="noopener">Uber Eats</a>
             </div>
           </div>
           <div class="bs-card reveal reveal-delay-1">
             <div class="card-img-placeholder">📷 Photo Coming Soon</div>
             <div class="bs-num">02</div>
             <span class="bs-tag">★ Most Ordered</span>
-            <h3 class="bs-name">Chicken Parmigiana</h3>
-            <p class="bs-desc">Crispy breaded chicken breast smothered in marinara and provolone. The sandwich that defines our kitchen.</p>
-            <span class="bs-price">$12.99</span>
+            <h3 class="bs-name">The McGregor</h3>
+            <p class="bs-desc">Chicken cutlets, garlic aioli, red onions, baby arugula, cherry tomatoes, cheese</p>
+            <span class="bs-price">$19.99</span>
             <div class="card-btns">
               <a class="btn btn-outline-red" href="tel:+17057192626">Call In Store</a>
-              <a class="btn btn-orange" href="https://www.ubereats.com" target="_blank" rel="noopener">Uber Eats</a>
+              <a class="btn btn-orange" href="https://www.ubereats.com/ca/store/california-sandwiches-barrie/wrpcuyBGSUGrwWFQw2cZxw" target="_blank" rel="noopener">Uber Eats</a>
             </div>
           </div>
           <div class="bs-card reveal reveal-delay-2">
             <div class="card-img-placeholder">📷 Photo Coming Soon</div>
             <div class="bs-num">03</div>
-            <span class="bs-tag">Vegetarian</span>
-            <h3 class="bs-name">Eggplant Parmigiana</h3>
-            <p class="bs-desc">Golden-fried eggplant with rich tomato sauce and melted cheese. A vegetarian classic.</p>
-            <span class="bs-price">$11.99</span>
+            <span class="bs-tag">★ Staff Favourite</span>
+            <h3 class="bs-name">The Don Verde</h3>
+            <p class="bs-desc">Veal schnitzel, basil pesto, eggplant topping, homemade marinara sauce</p>
+            <span class="bs-price">$19.99</span>
             <div class="card-btns">
               <a class="btn btn-outline-red" href="tel:+17057192626">Call In Store</a>
-              <a class="btn btn-orange" href="https://www.ubereats.com" target="_blank" rel="noopener">Uber Eats</a>
+              <a class="btn btn-orange" href="https://www.ubereats.com/ca/store/california-sandwiches-barrie/wrpcuyBGSUGrwWFQw2cZxw" target="_blank" rel="noopener">Uber Eats</a>
             </div>
           </div>
         </div>
