@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex,nofollow">
+  <meta name="description" content="Thank you for visiting California Sandwiches. You're being redirected to leave a Google review.">
+  <title>How Was Your Sandwich? — California Sandwiches</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Lora:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+
+  <style>
+    /* ── DESIGN TOKENS (mirrors styles.css) ── */
+    :root {
+      --red:        #BE1E2D;
+      --red-dk:     #8f1520;
+      --cream:      #FAF6F0;
+      --tan:        #EDE5D8;
+      --brown:      #3a2a1a;
+      --white:      #FFFFFF;
+      --black:      #111111;
+      --font-display: 'Bebas Neue', sans-serif;
+      --font-serif:   'Playfair Display', Georgia, serif;
+      --font-body:    'Lora', Georgia, serif;
+      --radius:     4px;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { font-size: 16px; }
+
+    body {
+      min-height: 100dvh;
+      background: var(--white);
+      color: var(--brown);
+      font-family: var(--font-body);
+      line-height: 1.65;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 40px 24px;
+      /* Fade in on load */
+      opacity: 0;
+      animation: fadeIn 0.6s ease 0.1s forwards;
+    }
+
+    @keyframes fadeIn {
+      to { opacity: 1; }
+    }
+
+    /* ── LOGO BADGE ── */
+    .logo-badge {
+      background: var(--red);
+      color: var(--white);
+      padding: 8px 18px 10px;
+      display: inline-flex;
+      flex-direction: column;
+      align-items: center;
+      line-height: 1;
+      border-radius: var(--radius);
+      margin-bottom: 40px;
+    }
+    .logo-est {
+      font-family: var(--font-body);
+      font-size: 9px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      opacity: 0.85;
+      margin-bottom: 2px;
+    }
+    .logo-name {
+      font-family: var(--font-display);
+      font-size: 22px;
+      letter-spacing: 3px;
+    }
+    .logo-sub {
+      font-family: var(--font-body);
+      font-size: 9px;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      opacity: 0.85;
+      margin-top: 1px;
+    }
+    .logo-stars {
+      font-size: 8px;
+      letter-spacing: 3px;
+      opacity: 0.7;
+      margin-top: 4px;
+    }
+
+    /* ── CARD ── */
+    .card {
+      max-width: 480px;
+      width: 100%;
+      text-align: center;
+    }
+
+    /* Thin red rule */
+    .rule {
+      width: 48px;
+      height: 3px;
+      background: var(--red);
+      border: none;
+      margin: 24px auto;
+    }
+
+    h1 {
+      font-family: var(--font-serif);
+      font-size: clamp(28px, 6vw, 40px);
+      font-weight: 700;
+      color: var(--black);
+      line-height: 1.2;
+    }
+
+    .supporting-text {
+      font-family: var(--font-body);
+      font-size: 16px;
+      color: #5a4a3a;
+      line-height: 1.75;
+      max-width: 380px;
+      margin: 0 auto;
+    }
+
+    /* ── LOADING DOTS ── */
+    .loading {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      margin: 36px auto 0;
+      height: 24px;
+    }
+    .loading-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--red);
+      opacity: 0.25;
+      animation: pulse 1.2s ease-in-out infinite;
+    }
+    .loading-dot:nth-child(2) { animation-delay: 0.2s; }
+    .loading-dot:nth-child(3) { animation-delay: 0.4s; }
+
+    @keyframes pulse {
+      0%, 80%, 100% { opacity: 0.2; transform: scale(0.85); }
+      40%            { opacity: 1;   transform: scale(1); }
+    }
+
+    /* ── COUNTDOWN LABEL ── */
+    .countdown {
+      margin-top: 28px;
+      font-family: var(--font-body);
+      font-size: 13px;
+      color: #9a8a7a;
+      letter-spacing: 0.5px;
+    }
+
+    /* ── NOSCRIPT FALLBACK ── */
+    .fallback-btn {
+      display: inline-block;
+      margin-top: 32px;
+      padding: 14px 32px;
+      background: var(--red);
+      color: var(--white);
+      font-family: var(--font-body);
+      font-size: 15px;
+      font-weight: 600;
+      text-decoration: none;
+      border-radius: var(--radius);
+      transition: background 0.25s ease;
+    }
+    .fallback-btn:hover { background: var(--red-dk); }
+  </style>
+</head>
+<body>
+
+  <div class="card">
+    <!-- Logo -->
+    <div class="logo-badge" role="img" aria-label="California Sandwiches">
+      <span class="logo-est">Est. 1967</span>
+      <span class="logo-name">CALIFORNIA</span>
+      <span class="logo-sub">Sandwiches</span>
+      <div class="logo-stars">★ ★ ★ ★ ★</div>
+    </div>
+
+    <!-- Heading -->
+    <h1>How was your sandwich?</h1>
+
+    <hr class="rule">
+
+    <!-- Body text -->
+    <p class="supporting-text">
+      Thanks for visiting California Sandwiches.<br><br>
+      We're taking you to Google Reviews where you can leave a quick review and help support a local business.
+    </p>
+
+    <!-- Loading animation -->
+    <div class="loading" role="status" aria-label="Redirecting, please wait">
+      <div class="loading-dot"></div>
+      <div class="loading-dot"></div>
+      <div class="loading-dot"></div>
+    </div>
+
+    <!-- Countdown text -->
+    <p class="countdown" aria-live="polite">Redirecting in 3 seconds&hellip;</p>
+
+    <!-- No-JS fallback -->
+    <noscript>
+      <a class="fallback-btn" href="https://search.google.com/local/writereview?placeid=ChIJgc6ewxC9KogRU0mY_jeN8Lo">
+        Continue to Google Reviews
+      </a>
+    </noscript>
+  </div>
+
+  <script>
+    const REVIEW_URL = 'https://search.google.com/local/writereview?placeid=ChIJgc6ewxC9KogRU0mY_jeN8Lo';
+
+    setTimeout(function () {
+      window.location.replace(REVIEW_URL);
+    }, 3000);
+  </script>
+
+</body>
+</html>
