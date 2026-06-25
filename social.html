@@ -39,7 +39,22 @@
     position: relative;
     z-index: 2;
     padding: 24px;
+    padding-top: 48px;
     width: 100%;
+  }
+  /* Fix 1 — hero title size scoped to social page */
+  .social-hero .hero-title {
+    font-size: clamp(28px, 4.5vw, 64px);
+  }
+  /* Fix 2 — hero subtitle prominence scoped to social page */
+  .social-hero .hero-subtitle {
+    color: rgba(255, 255, 255, 0.95);
+    font-size: clamp(15px, 2.2vw, 22px);
+    font-weight: 500;
+    text-shadow: 0 1px 8px rgba(0, 0, 0, 0.45);
+    max-width: 520px;
+    margin-left: auto;
+    margin-right: auto;
   }
   .social-cta-stack {
     display: flex;
@@ -88,38 +103,74 @@
     font-size: 12px;
   }
 
-  /* ── STICKY MOBILE BAR ── */
-  .sticky-bar {
-    display: none;
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    z-index: 200;
-    box-shadow: 0 -4px 20px rgba(0,0,0,0.15);
-    padding-bottom: env(safe-area-inset-bottom);
-  }
-  .sticky-bar-inner {
+  /* ── SANDWICH CAROUSEL ── */
+  .sandwich-carousel {
+    position: relative;
     display: flex;
+    align-items: center;
+    gap: 16px;
   }
-  .sticky-bar-btn {
-    flex: 1;
-    padding: 18px 8px;
-    text-align: center;
-    font-family: var(--font-body);
-    font-size: 13px;
-    font-weight: 600;
-    letter-spacing: 0.5px;
-    text-decoration: none;
-    color: var(--white);
+  .carousel-track-wrapper {
+    overflow: hidden;
+    width: 100%;
+  }
+  .carousel-track {
+    display: flex;
+    width: 300%;
+    transition: transform 0.45s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  .carousel-track .bs-card {
+    min-width: 33.333%;
+    flex-shrink: 0;
+    box-sizing: border-box;
+  }
+  .carousel-arrow {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: var(--white);
+    border: 2px solid var(--tan);
+    color: var(--brown);
+    font-size: 18px;
+    cursor: pointer;
+    flex-shrink: 0;
+    transition: background 0.2s, border-color 0.2s, color 0.2s;
     display: flex;
     align-items: center;
     justify-content: center;
   }
+  .carousel-arrow:hover {
+    background: var(--red);
+    color: var(--white);
+    border-color: var(--red);
+  }
+  .carousel-dots {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 20px;
+  }
+  .dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--tan);
+    border: none;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.2s;
+    padding: 0;
+  }
+  .dot.active {
+    background: var(--red);
+    transform: scale(1.3);
+  }
 
   @media (max-width: 640px) {
-    .sticky-bar { display: block; }
-    body { padding-bottom: 72px; }
+    .carousel-arrow {
+      width: 36px;
+      height: 36px;
+      font-size: 15px;
+    }
   }
 </style>
 </head>
@@ -154,55 +205,57 @@
       <h2 class="section-title">Order Your Favourite</h2>
       <div class="section-rule"></div>
     </div>
-    <div class="bestsellers-grid">
-      <div class="bs-card reveal">
-        <div class="card-img-placeholder">📷 Photo Coming Soon</div>
-        <div class="bs-num">01</div>
-        <span class="bs-tag">★ Fan Favourite</span>
-        <h3 class="bs-name">Veal Parmigiana</h3>
-        <p class="bs-desc">Tender breaded veal cutlet with house marinara and melted provolone on a fresh-baked bun.</p>
-        <span class="bs-price">$13.99</span>
-        <div class="card-btns">
-          <a class="btn btn-outline-red" href="tel:+17057192626">Call In Store</a>
-          <a class="btn btn-orange" href="https://www.ubereats.com" target="_blank" rel="noopener">Uber Eats</a>
+    <div class="sandwich-carousel">
+      <button class="carousel-arrow carousel-prev" aria-label="Previous">&#8592;</button>
+      <div class="carousel-track-wrapper">
+        <div class="carousel-track">
+          <div class="bs-card reveal">
+            <div class="card-img-placeholder">📷 Photo Coming Soon</div>
+            <div class="bs-num">01</div>
+            <span class="bs-tag">★ Fan Favourite</span>
+            <h3 class="bs-name">Veal Parmigiana</h3>
+            <p class="bs-desc">Tender breaded veal cutlet with house marinara and melted provolone on a fresh-baked bun.</p>
+            <span class="bs-price">$13.99</span>
+            <div class="card-btns">
+              <a class="btn btn-outline-red" href="tel:+17057192626">Call In Store</a>
+              <a class="btn btn-orange" href="https://www.ubereats.com" target="_blank" rel="noopener">Uber Eats</a>
+            </div>
+          </div>
+          <div class="bs-card reveal reveal-delay-1">
+            <div class="card-img-placeholder">📷 Photo Coming Soon</div>
+            <div class="bs-num">02</div>
+            <span class="bs-tag">★ Most Ordered</span>
+            <h3 class="bs-name">Chicken Parmigiana</h3>
+            <p class="bs-desc">Crispy breaded chicken breast smothered in marinara and provolone. The sandwich that defines our kitchen.</p>
+            <span class="bs-price">$12.99</span>
+            <div class="card-btns">
+              <a class="btn btn-outline-red" href="tel:+17057192626">Call In Store</a>
+              <a class="btn btn-orange" href="https://www.ubereats.com" target="_blank" rel="noopener">Uber Eats</a>
+            </div>
+          </div>
+          <div class="bs-card reveal reveal-delay-2">
+            <div class="card-img-placeholder">📷 Photo Coming Soon</div>
+            <div class="bs-num">03</div>
+            <span class="bs-tag">Vegetarian</span>
+            <h3 class="bs-name">Eggplant Parmigiana</h3>
+            <p class="bs-desc">Golden-fried eggplant with rich tomato sauce and melted cheese. A vegetarian classic.</p>
+            <span class="bs-price">$11.99</span>
+            <div class="card-btns">
+              <a class="btn btn-outline-red" href="tel:+17057192626">Call In Store</a>
+              <a class="btn btn-orange" href="https://www.ubereats.com" target="_blank" rel="noopener">Uber Eats</a>
+            </div>
+          </div>
         </div>
       </div>
-      <div class="bs-card reveal reveal-delay-1">
-        <div class="card-img-placeholder">📷 Photo Coming Soon</div>
-        <div class="bs-num">02</div>
-        <span class="bs-tag">★ Most Ordered</span>
-        <h3 class="bs-name">Chicken Parmigiana</h3>
-        <p class="bs-desc">Crispy breaded chicken breast smothered in marinara and provolone. The sandwich that defines our kitchen.</p>
-        <span class="bs-price">$12.99</span>
-        <div class="card-btns">
-          <a class="btn btn-outline-red" href="tel:+17057192626">Call In Store</a>
-          <a class="btn btn-orange" href="https://www.ubereats.com" target="_blank" rel="noopener">Uber Eats</a>
-        </div>
-      </div>
-      <div class="bs-card reveal reveal-delay-2">
-        <div class="card-img-placeholder">📷 Photo Coming Soon</div>
-        <div class="bs-num">03</div>
-        <span class="bs-tag">Vegetarian</span>
-        <h3 class="bs-name">Eggplant Parmigiana</h3>
-        <p class="bs-desc">Golden-fried eggplant with rich tomato sauce and melted cheese. A vegetarian classic.</p>
-        <span class="bs-price">$11.99</span>
-        <div class="card-btns">
-          <a class="btn btn-outline-red" href="tel:+17057192626">Call In Store</a>
-          <a class="btn btn-orange" href="https://www.ubereats.com" target="_blank" rel="noopener">Uber Eats</a>
-        </div>
-      </div>
+      <button class="carousel-arrow carousel-next" aria-label="Next">&#8594;</button>
+    </div>
+    <div class="carousel-dots">
+      <button class="dot active" data-index="0" aria-label="Card 1"></button>
+      <button class="dot" data-index="1" aria-label="Card 2"></button>
+      <button class="dot" data-index="2" aria-label="Card 3"></button>
     </div>
   </div>
 </section>
-
-<!-- STICKY MOBILE BAR -->
-<div class="sticky-bar">
-  <div class="sticky-bar-inner">
-    <a class="sticky-bar-btn" href="tel:+17057192626" style="background:var(--red);">Pickup</a>
-    <a class="sticky-bar-btn" href="https://www.ubereats.com" target="_blank" rel="noopener" style="background:var(--orange);">Delivery</a>
-    <a class="sticky-bar-btn" href="https://www.google.com/maps/dir//California+Sandwiches+Barrie,+75+Barrie+View+Dr+Unit+108A,+Barrie,+ON+L4N+8V4,+Canada" target="_blank" rel="noopener" style="background:var(--brown);">Directions</a>
-  </div>
-</div>
 
 <script>
   (function() {
@@ -216,6 +269,53 @@
       });
     }, { threshold: 0.12 });
     els.forEach(function(el) { observer.observe(el); });
+  })();
+
+  (function() {
+    var track = document.querySelector('.carousel-track');
+    var dots = document.querySelectorAll('.dot');
+    var prevBtn = document.querySelector('.carousel-prev');
+    var nextBtn = document.querySelector('.carousel-next');
+    var index = 0;
+    var total = 3;
+
+    function goTo(i) {
+      index = i;
+      track.style.transform = 'translateX(-' + (index * 33.333) + '%)';
+      dots.forEach(function(d, di) {
+        d.classList.toggle('active', di === index);
+      });
+    }
+
+    prevBtn.addEventListener('click', function() {
+      goTo((index + total - 1) % total);
+    });
+
+    nextBtn.addEventListener('click', function() {
+      goTo((index + 1) % total);
+    });
+
+    dots.forEach(function(d) {
+      d.addEventListener('click', function() {
+        goTo(parseInt(d.getAttribute('data-index'), 10));
+      });
+    });
+
+    var wrapper = document.querySelector('.carousel-track-wrapper');
+    var touchStartX = 0;
+    wrapper.addEventListener('touchstart', function(e) {
+      touchStartX = e.changedTouches[0].clientX;
+    }, { passive: true });
+    wrapper.addEventListener('touchend', function(e) {
+      var dx = e.changedTouches[0].clientX - touchStartX;
+      if (Math.abs(dx) > 50) {
+        if (dx < 0) {
+          goTo((index + 1) % total);
+        } else {
+          goTo((index + total - 1) % total);
+        }
+      }
+    }, { passive: true });
   })();
 </script>
 </body>
