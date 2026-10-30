@@ -527,6 +527,12 @@ nav .container { display: flex; align-items: center; justify-content: space-betw
 }
 .menu-section:nth-child(even) .menu-item { background: var(--white); }
 .menu-item:hover { border-left-color: var(--orange); transform: translateX(3px); }
+.menu-item-img {
+  display: block;
+  width: 100%; max-width: 240px; height: auto;
+  margin: 0 auto 14px;
+  mix-blend-mode: multiply; /* hides the photos' white background */
+}
 .menu-item-top { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; margin-bottom: 6px; }
 .menu-item-name {
   font-family: var(--font-serif); font-weight: 700;
@@ -702,6 +708,12 @@ footer::before { content: ''; display: block; height: 4px; background: var(--red
   font-size: 100px; color: rgba(190,30,45,0.07);
   position: absolute; top: -10px; right: 16px;
   line-height: 1; pointer-events: none;
+}
+.bs-img {
+  display: block;
+  width: 100%; max-width: 297px; height: auto;
+  margin: 0 auto 20px;
+  mix-blend-mode: multiply; /* hides the photos' white background on the cream card */
 }
 .bs-tag {
   background: var(--red); color: var(--white);
