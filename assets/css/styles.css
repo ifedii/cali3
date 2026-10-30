@@ -527,6 +527,12 @@ nav .container { display: flex; align-items: center; justify-content: space-betw
 }
 .menu-section:nth-child(even) .menu-item { background: var(--white); }
 .menu-item:hover { border-left-color: var(--orange); transform: translateX(3px); }
+.menu-item-img {
+  display: block;
+  width: 100%; max-width: 240px; height: auto;
+  margin: 0 auto 14px;
+  mix-blend-mode: multiply; /* hides the photos' white background */
+}
 .menu-item-top { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; margin-bottom: 6px; }
 .menu-item-name {
   font-family: var(--font-serif); font-weight: 700;
